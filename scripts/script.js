@@ -1,9 +1,12 @@
 
 // notizen anzeigen lassen
-
-// ich brauche notizen
+let notes = ["",]
 
 // ich muss definieren wo sie anzuzeigen sind
+function renderNotes(){
+    let contentRef = document.getElementById('content');
+    contentRef.innerHTML = notes;
+}
 
 // -> wann werden sie angezeigt?
 
