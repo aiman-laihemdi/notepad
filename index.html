@@ -9,14 +9,38 @@
     <script defer src="./scripts/script.js"></script>
 </head>
 <body onload="renderNotes()">
-    <h1>Notizblock</h1>
+    <header>
+        <h1>Notizblock</h1>
+    </header>
 
-    <input type="text" id="note_input" placeholder="Take a note...">
-    <button class="addNotes" onclick="addNote()">ADD NOTES</button>
-    <h2>notes</h2>
-    <div id="content"></div>
+    <main>
+        <section>
 
-    <h2>trash</h2>
-    <div id="trash_content"></div>
+            <article class="noteInput, noteContent">
+                <input  type="text"
+                        class="note_Input"
+                        id="note_input"
+                        placeholder="Take a note...">
+
+                <button class="addNotes"onclick="addNote()">ADD NOTES</button>
+                <div id="content"></div>
+            </article>
+
+            <article class="noteTrash, noteContent">
+                <h2>trash</h2>
+                <div id="trash_content"></div>
+            </article>
+
+            <article class="noteArchiv, noteContent">
+                <h2>archivieren</h2>
+                <div id="archiv_content"></div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
 </html>

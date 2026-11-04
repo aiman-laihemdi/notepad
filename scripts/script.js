@@ -1,15 +1,22 @@
 
-// notizen anzeigen lassen
+// Normale Notizen
 let notesTitles = [];
 let notes = [];
 
+// Papierkorb
 let trashNotesTitles = [];
 let trashNotes = [];
 
-// ich muss definieren wo sie anzuzeigen sind
+// Archiv
+let archivhNotesTitles = [];
+let archivNotes = [];
+
+
+// NOTIZEN ANZEIGEN
+
 function renderNotes(){
     let contentRef = document.getElementById('content');
-    contentRef.innerHTML = " ";
+    contentRef.innerHTML = "";
 
     for (let indexNote = 0; indexNote < notes.length; indexNote++) {
 
@@ -19,7 +26,19 @@ function renderNotes(){
 }
 
 function getNoteTemplate(indexNote){
-    return `<p class="noteParam"> + title: ${notesTitles[indexNote]} ->     ${notes[indexNote]}<button class="removeNotes" onclick="moveToTrash(${indexNote})">x</button></p>`;
+
+    return `
+        <p class="noteParam">
+            + title: ${notesTitles[indexNote]} ->
+            ${notes[indexNote]}
+
+            <button
+                class="removeNotes"
+                onclick="moveToTrash(${indexNote})">
+                x
+            </button>
+        </p>
+    `;
 }
 
 // notizen hinzufügen
@@ -30,9 +49,9 @@ function addNote(){
     notes.push(noteInput);
 
     renderNotes();
-
     noteInputRef.value = " ";
 }
+
 
 // notizen löschen
 function moveToTrash(indexNote){
@@ -65,4 +84,32 @@ function deleteNote(indexTrashNote){
 
     renderTrashNotes();
     renderTrashNotes();
+}
+
+function renderArchivNotes(){
+    let contentArchivRef = document.getElementById('archiv_content');
+    contentArchivRef.innerHTML = "";
+
+    for (let indexArchivNote = 0; indexArchivNote < archivNotes.length; indexArchivNote++) {
+        contentArchivRef.innerHTML += getArchivNoteTemplate(indexArchivNote);
+    }
+}
+
+
+function archivNotes(indexTrashNote){
+
+    let archivNote = trashNotes.splice(indexTrashNote, 1);
+    archivNotes.push(archivNote[0]);
+
+    let archivNoteTitle = trashNotesTitles.splice(indexTrashNote, 1);
+    archivhNotesTitles.push(archivNoteTitle[0]);
+
+    renderNotes();
+    renderTrashNotes();
+    renderArchivNotes();
+}
+
+
+function getArchivNoteTemplate(indexArchivNote){
+    return `<p class="noteParam">+ title: ${archivhNotesTitles[indexArchivNote]} -> ${archivNotes[indexArchivNote]}</p>`;
 }
