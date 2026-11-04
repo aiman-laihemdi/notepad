@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e293b;
+    --text-color: #ffffff;
+    --main-font: Arial, sans-serif;
+
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-medium: 1.25rem;
+    --font-size-large: 2rem;
+    --font-size-xlarge: 3rem;
+    --font-size-heading: 4rem;
+}
+
+.noteParam{
+    font-size: var(--font-size-medium);
+}
+
+.addNotes{
+    background-color: #c7c7c7;
+}
+
+.removeNotes{
+    background-color: rgb(199, 201, 201);
+}
