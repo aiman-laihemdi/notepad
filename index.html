@@ -1,14 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Notizblock</title>
+
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/standart.css">
-    <script defer src="./scripts/script.js"></script>
+
+    <script defer src="./scripts/script.js "></script>
 </head>
-<body onload="renderNotes()">
+
+<body onload="init()">
+
     <header>
         <h1>Notizblock</h1>
     </header>
@@ -16,31 +22,51 @@
     <main>
         <section>
 
-            <article class="noteInput, noteContent">
-                <input  type="text"
-                        class="note_Input"
-                        id="note_input"
-                        placeholder="Take a note...">
+            <!-- Notizen erstellen und anzeigen -->
+            <article class="noteInput noteContent">
 
-                <button class="addNotes"onclick="addNote()">ADD NOTES</button>
+                <input
+                    type="text"
+                    class="note_Input"
+                    id="title_input"
+                    placeholder="Titel eingeben...">
+
+                <input
+                    type="text"
+                    class="note_Input"
+                    id="note_input"
+                    placeholder="Take a note...">
+
+                <button class="addNotes" onclick="addNote()">
+                    ADD NOTES
+                </button>
+
                 <div id="content"></div>
+
             </article>
 
-            <article class="noteTrash, noteContent">
-                <h2>trash</h2>
+            <!-- Papierkorb -->
+            <article class="noteTrash noteContent">
+
+                <h2>Trash</h2>
+
                 <div id="trash_content"></div>
+
             </article>
 
-            <article class="noteArchiv, noteContent">
-                <h2>archivieren</h2>
+            <!-- Archiv -->
+            <article class="noteArchiv noteContent">
+
+                <h2>Archiv</h2>
+
                 <div id="archiv_content"></div>
+
             </article>
 
         </section>
     </main>
 
-    <footer>
+    <footer></footer>
 
-    </footer>
 </body>
 </html>
